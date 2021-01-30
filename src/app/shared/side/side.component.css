@@ -1,0 +1,77 @@
+/*style for sidebar*/
+
+.appSide {
+    width: 20%;
+    background-color:#03989E;
+    height: 94.5em;
+    float: right;
+}
+
+.sideContent {
+    text-align: right;
+
+}
+.appSide a {
+    display: block;
+    color: #fff;
+    height: 50px;
+    line-height: 3;
+    margin-bottom: 1rem;
+    padding-right: 1rem;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Cairo', sans-serif;
+}
+.appSide a:focus,
+.appSide a:hover,
+.appSide a.active {
+    background-color: #1d4e5e;
+    outline: none;
+    border-right: 7px solid #89ceb7;
+    border-top: 2px solid #03989E;
+    border-bottom: 2px solid #03989E;
+
+   /* width: 83.7%;*/
+}
+.appSide button:focus,
+.appSide button:hover,
+.appSide button.active {
+    background-color: #1d4e5e;
+    outline: none;
+    border-right: 7px solid #89ceb7;
+   /* width: 83.7%;*/
+}
+
+.appSide a i {
+    margin-left: 0.5rem;
+}
+
+/* Style the sidenav links and the dropdown button */
+.dropdown-btn {
+    text-decoration: none;
+    font-size: 19px;
+    color: #fff;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: right;
+    cursor: pointer;
+    outline: none;
+    height: 50px;
+line-height: 3;
+margin-bottom: 1rem;
+padding-right: 1rem;
+font-weight: bold;
+font-family: 'Cairo', sans-serif;
+
+  }
+  /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+  .dropdown-container {
+    background-color:  teal;
+    margin-top: -1rem;
+
+  }
+
+/*End of this style*/

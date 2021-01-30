@@ -1,0 +1,202 @@
+<app-side></app-side>
+<app-header></app-header>
+<div class="appSideInfo">
+    <div class="infoContent">
+        <div class="row mt-5" style="background-color: white;width: 90%;margin-left: auto;margin-right: auto;
+        height: 5rem;border-radius:10px;">
+            <div class="col-md-4 mr-2" style="margin-top: 1.5rem;">
+                <p>العروض المالية </p>
+            </div>
+
+            <div class="col-md-3">
+
+            </div>
+
+            <div class="col-md-4 mr-5" style="margin-top: 1.5rem;">
+                <a class="btn" (click)="open(content)" style="background-color: #03989E;color: white;font-weight:bold;
+                      margin-right: 8rem;">اضافة عرض مالى</a>
+
+
+            </div>
+        </div>
+
+        <div class="row" style="background-color: white;width: 90%;margin-left: auto;margin-right: auto;
+      height: auto;border-radius:10px;margin-top: 2rem;">
+            <div class="row  mr-auto ml-auto" style="margin-top: 2rem;width: 100%;">
+                    <div class="col-md-5 col-sm-6 mr-5">
+                        <div class="input-icons" style="margin-right: 2rem;"> 
+                            
+                            <input class="input-field" 
+                                   type="text" 
+                                   placeholder="  البحث" style="width:350px; " > 
+                                   <i class="fa fa-search icon"> 
+                                </i> 
+                        </div> 
+                    </div>
+                    <div class="col-md-6 col-sm-6 ">
+                        <div class="input-icons"> 
+                        <select class=" input-field mr-4" style="width:350px ;" >
+                            <option disabled selected> Filter By   </option>
+                            <option></option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+
+            <table class="table table-bordered mt-5 text-center">
+                <thead style="background-color: #E4E2E2;">
+                    <tr>
+                        <th scope="col"> بنك التحويل <i class="fas fa-sort"></i></th>
+                        <th scope="col">مبلغ التمويل <i class="fas fa-sort"></i></th>
+                        <th scope="col">الارباح<i class="fas fa-sort"></i> </th>
+                        <th scope="col">اجمالى المبلغ <i class="fas fa-sort"></i></th>
+                        <th scope="col">المستشار <i class="fas fa-sort"></i></th>
+                        <th scope="col">تعديــل</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of offerList">
+                        <th scope="row">{{item.salary_transferred_to_bank}}</th>
+                        <th scope="row">{{item.funding_amount}}</th>
+                        <th scope="row">{{item.profits}}</th>
+                        <th scope="row">{{item.total_amount_support}}</th>
+                        <th scope="row">{{item.consultant?.name || 'ــــ'}}</th>
+                        <td>
+                           
+                                <a (click)="editItem(item)">
+                                    <i class="fas fa-edit"
+                                        style="color: green;font-size: 25px;margin-top: 0.4rem;"></i></a>
+                            
+                                <a (click)="DeleteOffer(item.id)">
+                                    <i class="fas fa-trash-alt mr-5"
+                                        style="color: red;font-size: 25px;margin-top: 0.4rem;"></i></a>
+                        </td>
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+
+    <div class="modal-body">
+        <div class="modal-header " style="background-color: teal;">
+            <p
+                style="color:white;margin-left: auto;margin-right:auto;margin-top: 10px;font-size: 20px;font-weight: bold;">
+                اضافة عرض مالى    </p>
+        </div>
+        <form style="margin-top: 1rem;" [formGroup]="offerForm" (ngSubmit)="submitFormBank()">
+            <div class="row ml-auto mr-auto" style="width:100%">
+
+                <div >
+                    <label style="margin-left:10rem;"> المستشار </label>
+                
+                        <select class="form-control" style="width: 215px;height:50px;" formControlName="consultant_id">
+                          <option value="" disabled selected>اختر المستشار</option>
+                          <option *ngFor="let item of consList" [value]="item.id">
+                            {{item.name}}
+                          </option>
+                          <i class="fas fa-angle-down text-info"></i>
+                        </select>
+                </div>
+
+
+                <div  >
+                    <label style="margin-left:10rem;">بنك التحويل </label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="salary_transferred_to_bank" class="form-control mr-3"
+                        name="salary_transferred_to_bank">
+    
+                </div>
+    
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left:9rem;"> مبلغ التمويل </label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="funding_amount" class="form-control "
+                        name="funding_amount">
+    
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left:12rem;">الارباح</label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="profits" class="form-control mr-3"
+                        name="profits">
+    
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left:8rem;"> المبلغ بالكامل</label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="total_amount_support" class="form-control "
+                        name="total_amount_support">
+    
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left:9rem;"> فترة القرض</label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="loan_repayment_period" class="form-control mr-3"
+                        name="loan_repayment_period">
+    
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left:6rem;"> مدة القرض بالسنين</label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="years_number_loan_repayment_period" class="form-control "
+                        name="years_number_loan_repayment_period">
+    
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left:6rem;">مدة القرض بالاشهر </label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="month_number_loan_repayment_period" class="form-control mr-3"
+                        name="month_number_loan_repayment_period">
+    
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left:6rem;"> الدفعه الاولى للدفع</label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="first_installment" class="form-control "
+                        name="first_installment">
+    
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left:6rem;"> الدفعه الثانيه للدفع</label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="second_installment" class="form-control mr-3"
+                        name="second_installment">
+    
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left:7rem;">شهر اول قسط </label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="month_number_first_installment" class="form-control "
+                        name="month_number_first_installment">
+    
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label  style="margin-left:7rem;">شهر ثانى قسط</label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="month_number_second_installment" class="form-control mr-3"
+                        name="month_number_second_installment">
+    
+                </div>
+                
+            </div>
+            
+            <div style="margin-top: 1rem;">
+                <label  style="margin-left:24rem;"> التمويل العقارى </label>
+            
+                    <select class="form-control" style="width: 215px;height:50px;" formControlName="finance_id">
+                      <option value="" disabled selected>اختر التمويل العقارى</option>
+                      <option *ngFor="let item of finanList" [value]="item.id">
+                        {{item.full_name}}
+                      </option>
+                      <i class="fas fa-angle-down text-info"></i>
+                    </select>
+            </div>
+            <div>
+                <button type="submit" class="btn "
+                  style="color: white;float: left;margin-left: 0.8rem;font-size: 20px;width:450px;
+                  background-color:teal;margin-top: 2rem;">حفظ</button>
+              </div>
+        </form>
+
+
+    </div>
+
+</ng-template>

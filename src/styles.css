@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+}
+.table{
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.appSideInfo {
+    display: inline-block;
+    width: 80%;
+    height: 90em;
+    background-color:#EEEAEA;
+   
+  }
+  
+  .appSideInfo .infoContent {
+    display: block;
+    width: 100%;
+    text-align: right;
+    margin: auto;
+  
+  }
+  a i {
+    cursor: pointer;
+  }
+

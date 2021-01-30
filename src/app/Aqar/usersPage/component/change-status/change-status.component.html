@@ -1,0 +1,32 @@
+<div class="modal-body">
+    <div class="row" style="background-color: teal;width: 33.2rem;margin-top: -1rem;margin-left: -1rem;">
+        <p style="color:white;margin-left: auto;margin-right: auto;margin-top: 10px;">تعديل حالة الاكونت</p>
+    </div>
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()" *ngIf="editForm" class="mt-2">
+
+        <div style="width:100%;height: auto;font-size: 20px;margin-bottom: 5px;margin-left: auto;margin-right: auto;">
+            <div class="form-check form-check-inline mt-3" [formGroup]="editForm"
+                style="display:inline-block;margin-left: 5rem;">
+                <label class="form-check-label mr-2" for="materialInline1">Owner </label>
+                <input type="radio" class="form-check-input" formControlName="is_owner" 
+                    name="is_owner" value="1">
+            </div>
+            <div class="form-check form-check-inline " [formGroup]="editForm"
+                style="display:inline-block;margin-left: 7rem;">
+                <label class="form-check-label mr-2" for="materialInline2">User </label>
+                <input type="radio" class="form-check-input" formControlName="is_owner" 
+                name="is_owner" value="0">
+            </div>
+           
+          
+
+        </div>
+        <div class="modal-footer ml-auto mr-auto">
+            <button  class="btn  " (click)="modal.close('Cancel')"
+                style="background-color:teal;color: white;width:100px;">الغاء</button>
+            <button  class="btn  "
+                style="background-color:  teal;color: white;width:100px;margin-left: 7rem;">حفظ</button>
+        </div>
+
+    </form>
+</div>

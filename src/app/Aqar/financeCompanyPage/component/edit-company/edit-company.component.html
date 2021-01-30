@@ -1,0 +1,58 @@
+<div class="modal-body">
+    <div class="row" style="background-color: teal;width: 33.2rem;margin-top: -1rem;">
+        <p style="color:white;margin-left: auto;margin-right: auto;margin-top: 10px;">تعديل جهة التمويل العقارى</p>
+    </div>
+    <form style="margin-top: 2rem;" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="row ml-auto mr-auto" style="width:100%">
+
+            <div>
+                <label style="margin-left: 12rem;"> ID </label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="company_id" class="form-control"
+                    name="company_id">
+
+            </div>
+            <div >
+                <label style="margin-left: 10rem;">اسم الجهة </label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="name" class="form-control mr-3"
+                    name="name">
+
+            </div>
+
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 5rem;">اسم الشخص المسئول </label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="username" class="form-control"
+                    name="username">
+
+            </div>
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 11rem;">الايميل</label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="email" class="form-control mr-3"
+                    name="email">
+
+            </div>
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 10rem;">رقم الجوال</label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="mobile" class="form-control"
+                    name="mobile">
+
+            </div>
+            <div style="margin-top: 1rem;" >
+                <label style="margin-left: 11rem;">الصوره</label><br>
+                <div class="mr-3" style="border: 1px solid rgb(209, 204, 204);height: 50px;width: 215px;
+    border-radius:5px">
+                    <input type="file" (change)="onFileChanged($event)" accept=".png, .jpg, .jpeg"
+                        style="padding: 5px;margin-top: 0.4rem;" />
+                    <img src="">
+                </div>
+            </div>
+            
+        </div>
+
+
+        <div class="modal-footer " style="border: none;">
+            <button [disabled]="isLoading" class="btn  " style="background-color:  teal;
+            color: white;width:420px;height: 50px;font-size: 18px;font-weight: bold;
+           ">حفظ</button>
+        </div>
+    </form>
+</div>

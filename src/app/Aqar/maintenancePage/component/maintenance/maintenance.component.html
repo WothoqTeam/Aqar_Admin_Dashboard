@@ -1,0 +1,153 @@
+<app-side></app-side>
+<app-header></app-header>
+<div class="appSideInfo">
+    <div class="infoContent">
+        <div class="row mt-5" style="background-color: white;width: 90%;margin-left: auto;margin-right: auto;
+      height: 5rem;border-radius:10px;">
+            <div class="col-md-4 mr-2" style="margin-top: 1.5rem;">
+                <p> صيانه </p>
+            </div>
+
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-4 mr-5" style="margin-top: 1.5rem;">
+                <a class="btn" (click)="open(content)" style="background-color: #03989E;color: white;font-weight:bold;
+                    margin-right: 9rem;">اضافة صيانه</a>
+
+
+            </div>
+
+
+        </div>
+
+        <div class="row" style="background-color: white;width: 90%;margin-left: auto;margin-right: auto;
+      height: auto;border-radius:10px;margin-top: 2rem;">
+
+            <div class="row  mr-auto ml-auto" style="margin-top: 2rem;width: 100%;">
+                    <div class="col-md-5 col-sm-6 mr-5">
+                        <div class="input-icons" style="margin-right: 2rem;"> 
+                            
+                            <input class="input-field" 
+                                   type="text" 
+                                   placeholder="  البحث" style="width:350px; " > 
+                                   <i class="fa fa-search icon"> 
+                                </i> 
+                        </div> 
+                    </div>
+                    <div class="col-md-6 col-sm-6 ">
+                        <div class="input-icons"> 
+                        <select class=" input-field mr-4" style="width:350px ;" >
+                            <option disabled selected> Filter By   </option>
+                            <option></option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+
+            <table class="table table-bordered mt-5 text-center">
+                <thead style="background-color: #E4E2E2;">
+                    <tr>
+                        <th scope="col">الوقت <i class="fas fa-sort"></i></th>
+                        <th scope="col">التاريخ <i class="fas fa-sort"></i></th>
+                        <th scope="col">نوع الصيانه <i class="fas fa-sort"></i></th>
+                        <th scope="col">اسم المستخدم <i class="fas fa-sort"></i></th>
+                        <th scope="col">المزيد </th>
+                        <th scope="col">تعديــل</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of requestList">
+                        <th scope="row">{{item.time}}</th>
+                        <th scope="row">{{item.date}}</th>
+                        <th scope="row">{{item.type}}</th>
+                        <th scope="row">{{item.user_name || 'ــــ'}} </th>
+                        <th><button class="btn" (click)="viewDetails(item)"
+                                style="background-color: teal;color: white;font-weight: bold;">المزيد</button></th>
+                        <td>
+                            
+                                <a (click)="editItem(item)">
+                                    <i class="fas fa-edit"
+                                        style="color: green;font-size: 25px;margin-top: 0.4rem;"></i></a>
+                        
+                                <a (click)="DeleteUser(item.id)">
+                                    <i class="fas fa-trash-alt mr-5"
+                                        style="color: red;font-size: 25px;margin-top: 0.4rem;"></i></a>
+                           
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+
+    <div class="modal-body">
+        <div class="modal-header " style="background-color: teal;">
+            <p style="color:white;margin-left: auto;margin-right:auto;margin-top: 10px;font-size: 20px;font-weight: bold;"> اضافة صيانه جديده</p>
+        </div>
+      
+        <form style="margin-top: 2rem;" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="row ml-auto mr-auto" style="width:100%">
+
+                <div>
+                    <label style="margin-right: 1rem;">التاريخ </label>
+                    <input type="date" style="height:50px;width: 215px;" formControlName="date"
+                        class="form-control mr-3" name="date">
+
+                </div>
+
+                <div>
+                    <label style="margin-left: 11rem;">الوقت </label>
+                    <input type="time" style="height:50px;width: 215px;" formControlName="time"
+                        class="form-control mr-3" name="time">
+
+                </div>
+                <div class="mt-3">
+                    <label style="margin-left: 9rem;">نوع الصيانه</label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="type"
+                        class="form-control mr-3" name="type" placeholder="ادخل نوع الصيانه ">
+
+                </div>
+                <div style="margin-right: 1rem;" class="mt-3">
+                    <label style="margin-left:8rem;"> اسم المستخدم </label>
+
+                    <select class="form-control" style="width: 215px;height:50px;" formControlName="user_id">
+                        <option value="" disabled selected>اختر الاسم</option>
+                        <option *ngFor="let item of userList" [value]="item.id">
+                            {{item.username}}
+                        </option>
+                        <i class="fas fa-angle-down text-info"></i>
+                    </select>
+                </div>
+                <div>
+
+                    <div class="mt-3" style="margin-right: 1rem;">
+                        <label style="margin-left: 9rem;">صور التصليح</label>
+                        <div style="border: 1px solid rgb(209, 204, 204);height: 50px;width: 215px;
+        border-radius:5px">
+                        <input type="file" (change)="onFileChanged($event)" 
+                        style="padding: 5px;margin-top: 0.2rem;"
+                            multiple />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <button type="submit" class="btn mt-4 ml-2 " style="color: white;font-size: 20px;width:450px;
+                  background-color:teal;margin-top: -3rem;">حفظ</button>
+            </div>
+        </form>
+
+    </div>
+
+</ng-template>

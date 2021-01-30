@@ -1,0 +1,540 @@
+<app-side></app-side>
+<app-header></app-header>
+<div class="appSideInfo">
+    <div class="infoContent">
+        <div class="row mt-5" style="background-color: white;width: 90%;margin-left: auto;margin-right: auto;
+        height: 5rem;border-radius:10px;">
+            <div class="col-md-4 mr-2" style="margin-top: 1.5rem;">
+                <p> التقاريـر العقاريــه  </p>
+            </div>
+
+            <div class="col-md-3">
+
+            </div>
+
+            <div class="col-md-4 mr-5" style="margin-top: 1.5rem;">
+
+                <a class="btn" (click)="open(content)" style="background-color: teal;color: white;">
+                      اضافة أرض جديده</a>
+                <a class="btn mr-4" (click)="open(content1)"  style="background-color: teal;color: white;">
+                       اضافة عقار جديد</a>
+
+
+            </div>
+        </div>
+
+        <div class="row" style="background-color: white;width: 90%;margin-left: auto;margin-right: auto;
+      height: auto;border-radius:10px;margin-top: 2rem;">
+
+<div class="row  mr-auto ml-auto" style="margin-top: 2rem;width: 100%;">
+    <div class="col-md-5 col-sm-6 mr-5">
+        <div class="input-icons" style="margin-right: 2rem;"> 
+            
+            <input class="input-field" 
+                   type="text" 
+                   placeholder="  البحث" style="width:350px; " > 
+                   <i class="fa fa-search icon"> 
+                </i> 
+        </div> 
+    </div>
+    <div class="col-md-6 col-sm-6 ">
+        <div class="input-icons"> 
+        <select class=" input-field mr-4" style="width:350px ;" >
+            <option disabled selected> Filter By   </option>
+            <option></option>
+        </select>
+        </div>
+    </div>
+</div>
+
+            <section id="tabs" class="project-tab mt-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <nav>
+                                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
+                                        href="#nav-home" (click)="aqarland()" role="tab" aria-controls="nav-home"
+                                        aria-selected="true">الاراضي </a>
+                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
+                                        href="#nav-profile" (click)="aqarall()" role="tab" aria-controls="nav-profile"
+                                        aria-selected="false">العقارات</a>
+
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                    aria-labelledby="nav-home-tab">
+                                    <table datatable class="table text-center" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th> المدينة  <i class="fas fa-sort"></i></th>
+                                                <th>الحى   <i class="fas fa-sort"></i></th>
+                                                <th>رقــم العقار  <i class="fas fa-sort"></i></th>
+                                                <th> نوع العقار  <i class="fas fa-sort"></i></th>
+                                                <th> تاريــخ العقار  <i class="fas fa-sort"></i></th>
+                                                <th> المزيد </th>
+                                                <th> تعــديل </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let item of aqarList">
+                                                <td>{{item.city}}</td>
+                                                <td>{{item.district}}</td>
+                                                <td>{{item.suk_number}}</td>
+                                                <td *ngIf="item.aqar_type === 0">أرض</td> 
+                                            
+                                                <td>{{item.suk_date}}</td>
+                                                <th><button class="btn" (click)="viewDetails(item)"
+                                                        style="background-color: teal;color: white;font-weight: bold;">المزيد</button>
+                                                </th>
+                                                <td>
+                                                    <a>
+                                                        <i class="fas fa-edit" (click)="editItem(item)"
+                                                            style="color: green;font-size: 25px;margin-top: 0.4rem;"></i></a>
+                                                    <a>
+                                                        <i class="fas fa-trash-alt mr-5" (click)="DeleteAqar(item.id,0)"
+                                                            style="color: red;font-size: 25px;margin-top: 0.4rem;"></i></a>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                    aria-labelledby="nav-profile-tab">
+                                    <table class="table text-center" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th> المدينة  <i class="fas fa-sort"></i></th>
+                                                <th>الحى <i class="fas fa-sort"></i></th>
+                                                <th>رقم الارض  <i class="fas fa-sort"></i></th>
+                                                <th> نوع العقار   <i class="fas fa-sort"></i></th>
+                                                <th>عمر العقار  <i class="fas fa-sort"></i></th>
+                                                <th> نوع المبنى  <i class="fas fa-sort"></i></th>
+                                                <th> المزيد </th>
+                                                <th> تعــديل </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let item of aqarList">
+                                                <td>{{item.city}}</td>
+                                                <td>{{item.district}}</td>
+                                                <td>{{item.suk_number}}</td>
+                                                <td *ngIf="item.aqar_type===1">شقه</td>
+                                                <td *ngIf="item.aqar_type===2">فيلا</td>
+                                                <td *ngIf="item.aqar_type===3">عماره</td>
+                                               
+                                                <td>{{item.aqar_age}}</td>
+                                                <td *ngIf="item.building_status===0">جديــد </td>
+                                                <td *ngIf="item.building_status===1">قديم </td>
+                                                <th><button class="btn" (click)="viewDetailsAqar(item)"
+                                                        style="background-color: teal;color: white;font-weight: bold;">المزيد</button>
+                                                </th>
+
+                                                <td>
+                                                    <a>
+                                                        <i class="fas fa-edit" (click)="editItemAqar(item)"
+                                                            style="color: green;font-size: 25px;margin-top: 0.4rem;"></i></a>
+                                                    <a>
+                                                        <i class="fas fa-trash-alt mr-5" (click)="DeleteAqar(item.id,1||2||3)"
+                                                            style="color: red;font-size: 25px;margin-top: 0.4rem;"></i></a>
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>
+<ng-template #content let-modal>
+    
+    <div class="modal-body">
+        <div class="modal-header " style="background-color: teal;">
+            <p style="color:white;margin-left: auto;margin-right:auto;margin-top: 10px;font-size: 20px;font-weight: bold;"> اضافة تقرير عقارى جديد </p>
+        </div>
+        <form style="margin-top: 2rem;;" [formGroup]="LandForm" (ngSubmit)="submitFormAqar()">
+            <div class="row">
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 10.5rem;">نوع العقار </label>
+                    <br>
+                    <select class="form-control mr-3" style="width: 215px;height:50px;" formControlName="aqar_type">
+                        <option value="" disabled selected>اختر نوع العقار</option>
+                        <option [value]="0">أرض</option>
+                        <i class="fas fa-angle-down text-info"></i>
+                    </select>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 11rem;">المدينه </label>
+                    <br>
+                    <select class="form-control mr-3 " style="width: 215px;height:50px;" 
+                        formControlName="city">
+                        <option value="" disabled selected>اختر المدينه</option>
+                        <option *ngFor="let item of cityList" [value]="item.name_ar">{{item.name_ar}}</option>
+                        <i class="fas fa-angle-down text-info"></i>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 12rem;">الحي </label>
+                    <br>
+                    <select class="form-control mr-3" style="width: 215px;height:50px;" 
+                        formControlName="district">
+                        <option value="" disabled selected>اختر الحي</option>
+                        <option *ngFor="let item of districtList" [value]="item.name_ar">{{item.name_ar}}</option>
+                        <i class="fas fa-angle-down text-info"></i>
+                    </select>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 11rem;"> الشارع </label>
+                    <br>
+                    <select class="form-control mr-3" style="width: 215px;height:50px;" 
+                        formControlName="street_type">
+                        <option value="" disabled selected>اختر نوع الشارع</option>
+                        <option [value]="0">سكني</option>
+                        <option [value]="1">تجارى </option>
+                        <option [value]="2">تجاري و سكني </option>
+                        <i class="fas fa-angle-down text-info"></i>
+                    </select>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 10rem;">حالة الشارع </label>
+                    <br>
+                    <select class="form-control mr-3" style="width: 215px;height:50px;" 
+                        formControlName="street_asphalt_type">
+                        <option value="" disabled selected>اختر الحاله</option>
+                        <option [value]="0">مسفلت</option>
+                        <option [value]="1">غير مسفلت</option>
+                        <i class="fas fa-angle-down text-info"></i>
+                    </select>
+                </div>
+               
+                <div style="margin-top: 1rem;">
+                
+                    <label style="margin-left: 9rem;">رقم العقار</label>
+                    <input type="text"  style="height:50px;width: 215px;" formControlName="suk_number" class="form-control mr-3"
+                        name="suk_number">
+                </div>
+            </div>
+            <div class="row">
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 9rem;"> تاريخ العقار  </label>
+                    
+                    <input type="date"  style="height:50px;width: 215px;" formControlName="suk_date" class="form-control mr-3"
+                        name="suk_date">
+                </div>
+                <div style="margin-top: 1rem;">
+                
+                    <label style="margin-left: 9rem;">مساحة الارض</label>
+                    <input type="text"  style="height:50px;width: 215px;" formControlName="area" class="form-control mr-3"
+                        name="area">
+                </div>
+            </div>
+            <div class="row">
+                
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 9rem;"> عدد الواجهات   </label>
+                    
+                    <input type="text"  style="height:50px;width: 215px;" formControlName="interfaces_number" class="form-control mr-3"
+                        name="interfaces_number">
+                </div>
+                <div style="margin-top: 1rem;">
+                
+                    <label style="margin-left: 10rem;">سعر المتر</label>
+                    <input type="text"  style="height:50px;width: 215px;" formControlName="meter_price" class="form-control mr-3"
+                        name="meter_price">
+                </div>
+            </div>
+            <div class="row">
+                
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 11rem;"> المخطط    </label>
+                    
+                    <input type="text"  style="height:50px;width: 215px;" formControlName="no_planned" class="form-control mr-3"
+                        name="no_planned">
+                </div>
+                <div style="margin-top: 1rem;">
+                
+                    <label style="margin-left: 9rem;">رقم القطعة </label>
+                    <input type="text"  style="height:50px;width: 215px;" formControlName="piece_number" class="form-control mr-3"
+                        name="piece_number">
+                </div>
+            </div>
+            <div class="row">
+                
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 9rem;"> تاريخ التقييم    </label>
+                    
+                    <input type="date"  style="height:50px;width: 215px;" formControlName="evaluation_date" class="form-control mr-3"
+                        name="evaluation_date">
+                </div>
+               
+            </div>
+            <div>
+                <button type="submit" class="btn "
+                  style="color: white;font-size: 20px;width:400px;float: right;margin-right: 2rem;
+                  background-color:teal;margin-top: 2rem;">حفظ</button>
+              </div>
+        </form>
+
+
+    </div>
+
+</ng-template>
+<ng-template #content1 let-modal>
+    
+    <div class="modal-body">
+        <div class="modal-header " style="background-color: teal;">
+            <p style="color:white;margin-left: auto;margin-right:auto;margin-top: 10px;font-size: 20px;font-weight: bold;"> اضافة تقرير عقارى جديد </p>
+        </div>
+        <form style="margin-top: 1rem;;" [formGroup]="AqarForm" (ngSubmit)="Onsubmit()">
+            <div class="row">
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 10.5rem;">نوع العقار </label>
+                    <br>
+                    <select class="form-control mr-3" style="width: 215px;height:50px;" formControlName="aqar_type">
+                        <option value="" disabled selected>اختر نوع العقار</option>
+                        <option [value]="1">الشقة</option>
+                        <option [value]="2">فيلا</option>
+                        <option [value]="3">عمارة</option>
+                        <i class="fas fa-angle-down text-info"></i>
+                    </select>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 11rem;">المدينه </label>
+                    <br>
+                    <select class="form-control mr-3 " style="width: 215px;height:50px;" 
+                        formControlName="city">
+                        <option value="" disabled selected>اختر المدينه</option>
+                        <option *ngFor="let item of cityList" [value]="item.name_ar">{{item.name_ar}}</option>
+                        <i class="fas fa-angle-down text-info"></i>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 12rem;">الحي </label>
+                    <br>
+                    <select class="form-control mr-3" style="width: 215px;height:50px;" 
+                        formControlName="district">
+                        <option value="" disabled selected>اختر الحي</option>
+                        <option *ngFor="let item of districtList" [value]="item.name_ar">{{item.name_ar}}</option>
+                        <i class="fas fa-angle-down text-info"></i>
+                    </select>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 11rem;"> الشارع </label>
+                    <br>
+                    <select class="form-control mr-3" style="width: 215px;height:50px;" 
+                        formControlName="street_type">
+                        <option value="" disabled selected>اختر نوع الشارع</option>
+                        <option [value]="0">سكني</option>
+                        <option [value]="1">تجارى </option>
+                        <option [value]="2">تجاري و سكني </option>
+                        <i class="fas fa-angle-down text-info"></i>
+                    </select>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 10rem;">حالة الشارع </label>
+                    <br>
+                    <select class="form-control mr-3" style="width: 215px;height:50px;" 
+                        formControlName="street_asphalt_type">
+                        <option value="" disabled selected>اختر الحاله</option>
+                        <option [value]="0">مسفلت</option>
+                        <option [value]="1">غير مسفلت</option>
+                        <i class="fas fa-angle-down text-info"></i>
+                    </select>
+                </div>
+               
+                <div style="margin-top: 1rem;">
+                
+                    <label style="margin-left: 9rem;">رقم العقار</label>
+                    <input type="text"  style="height:50px;width: 215px;" formControlName="suk_number" class="form-control mr-3"
+                        name="suk_number">
+                </div>
+            </div>
+            <div class="row">
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 9rem;"> تاريخ العقار  </label>
+                    
+                    <input type="date"  style="height:50px;width: 215px;" formControlName="suk_date" class="form-control mr-3"
+                        name="suk_date">
+                </div>
+                <div style="margin-top: 1rem;">
+                
+                    <label style="margin-left: 9rem;">مساحة الارض</label>
+                    <input type="text"  style="height:50px;width: 215px;" formControlName="area" class="form-control mr-3"
+                        name="area">
+                </div>
+            </div>
+            <div class="row">
+                
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 9rem;"> عدد الواجهات   </label>
+                    
+                    <input type="text"  style="height:50px;width: 215px;" formControlName="interfaces_number" class="form-control mr-3"
+                        name="interfaces_number">
+                </div>
+                <div style="margin-top: 1rem;">
+                
+                    <label style="margin-left: 10rem;">سعر المتر</label>
+                    <input type="text"  style="height:50px;width: 215px;" formControlName="meter_price" class="form-control mr-3"
+                        name="meter_price">
+                </div>
+            </div>
+            <div class="row">
+                
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 11rem;"> المخطط    </label>
+                    
+                    <input type="text"  style="height:50px;width: 215px;" formControlName="no_planned" class="form-control mr-3"
+                        name="no_planned">
+                </div>
+                <div style="margin-top: 1rem;">
+                
+                    <label style="margin-left: 9rem;">رقم القطعة </label>
+                    <input type="text"  style="height:50px;width: 215px;" formControlName="piece_number" class="form-control mr-3"
+                        name="piece_number">
+                </div>
+            </div>
+            <div class="row">
+                
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 9rem;"> تاريخ التقييم    </label>
+                    
+                    <input type="date"  style="height:50px;width: 215px;" formControlName="evaluation_date" class="form-control mr-3"
+                        name="evaluation_date">
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 9rem;">مساحة المبنى</label>
+                    
+                    <input type="text"  style="height:50px;width: 215px;" formControlName="building_area" class="form-control mr-3"
+                        name="building_area">
+                </div>
+               
+            </div>
+            <div class="row">
+                
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 5.5rem;">سعر المتر في المبنى</label>
+                    
+                    <input type="text"  style="height:50px;width: 215px;" formControlName="building_meter_price" class="form-control mr-3"
+                        name="building_meter_price">
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 6rem;">سعر المتر في الارض </label>
+                    
+                    <input type="text"  style="height:50px;width: 215px;" formControlName="land_meter_price" class="form-control mr-3"
+                        name="land_meter_price">
+                </div>
+               
+            </div>
+            <div class="row">
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 9rem;">حالة المبنى </label>
+                    <br>
+                    <select class="form-control mr-3" style="width: 215px;height:50px;" 
+                        formControlName="building_status">
+                        <option value="" disabled selected>اختر حالة المبنى</option>
+                        <option value="0" >جـــديد</option>
+                        <option value="1" >قــــديم</option>
+                        <i class="fas fa-angle-down text-info"></i>
+                    </select>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 8rem;"> خدمة التليفون </label>
+                    <br>
+                    <select class="form-control mr-3" style="width: 215px;height:50px;" 
+                        formControlName="telephone_service">
+                        <option value="" disabled selected>اختر خدمة التليفون</option>
+                        <option [value]="0">خدمة التليفون متاحة</option>
+                        <option [value]="1">لا تتوفر خدمة التليفون </option>
+                        
+                        <i class="fas fa-angle-down text-info"></i>
+                    </select>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 9rem;">حالة الكهرباء </label>
+                    <br>
+                    <select class="form-control mr-3" style="width: 215px;height:50px;" 
+                        formControlName="electricity_service">
+                        <option value="" disabled selected>اختر حالة الكهرباء</option>
+                        <option value="0" >تتوفر خدمة الكهربــاء</option>
+                        <option value="1" >لا تتوفر خدمة الكهربــاء</option>
+                        <i class="fas fa-angle-down text-info"></i>
+                    </select>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 6rem;"> خدمة الصرف الصحى </label>
+                    <br>
+                    <select class="form-control mr-3" style="width: 215px;height:50px;" 
+                        formControlName="sanitation_service">
+                        <option value="" disabled selected>اختر خدمة الصرف </option>
+                        <option [value]="0">  متاحة</option>
+                        <option [value]="1">غير متاحة </option>
+                        
+                        <i class="fas fa-angle-down text-info"></i>
+                    </select>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 10rem;">حالة المياه </label>
+                    <br>
+                    <select class="form-control mr-3" style="width: 215px;height:50px;" 
+                        formControlName="water_service">
+                        <option value="" disabled selected>اختر حالة المياه</option>
+                        <option value="0" >تتوفر خدمة الميـــاه</option>
+                        <option value="1" >لا تتوفر خدمة الميـــاه</option>
+                        <i class="fas fa-angle-down text-info"></i>
+                    </select>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 9rem;"> عدد الشــقق </label>
+                    <br>
+                    <input type="text"  style="height:50px;width: 215px;" formControlName="unit_number_apartments" class="form-control mr-3"
+                        name="unit_number_apartments">
+                </div>
+                
+            </div>
+            <div class="row">
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 10rem;"> عمر العقار  </label>
+                    <br>
+                    <input type="text"  style="height:50px;width: 215px;" formControlName="aqar_age" class="form-control mr-3"
+                        name="aqar_age">
+                </div>
+                
+            </div>
+            <div>
+                <button type="submit" class="btn "
+                  style="color: white;font-size: 20px;width:400px;float: right;margin-right: 2rem;
+                  background-color:teal;margin-top: 2rem;">حفظ</button>
+              </div>
+        </form>
+
+
+    </div>
+
+</ng-template>

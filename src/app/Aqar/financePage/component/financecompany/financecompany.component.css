@@ -1,0 +1,41 @@
+.input-icons i { 
+    position: absolute; 
+} 
+  
+.input-icons { 
+    width: 100%; 
+
+} 
+  
+.icon { 
+    color: rgb(190, 188, 188); 
+    min-width: 50px; 
+    font-size: 22px;
+    margin-right: -2rem;
+    margin-top: 0.8rem;
+} 
+  
+.input-field { 
+    width: 100%; 
+    border:none;
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 10px;
+    height: 40px;
+} 
+  
+h2 { 
+    color: green; 
+} 
+.loading{
+    color: white;
+    padding-top: 50px;
+}
+.card{
+    box-shadow: 2px 2px 5px 5px rgb(209, 209, 209);
+    border-radius: 20px;
+}
+.btn{
+    background-color: teal;
+    color: white;
+}
+

@@ -1,0 +1,46 @@
+<div class="modal-body">
+    <div class="row" style="background-color: teal;width: 33.2rem;margin-top: -1rem;">
+        <p style="color:white;margin-left: auto;margin-right:auto;margin-top: 10px;">الصيانة </p>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid teal;height: 70px;">
+                <div class="card-body" style="margin-left: auto;margin-top: -1rem;">
+                    <h6 class="card-title text-right mt-2">نوع الصيانه</h6>
+                    <p class="card-text text-right" style="color:teal;margin-top: -5px;font-size: 18px;">
+                        {{oneRow.type}}</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid teal;height: 70px;">
+                <div class="card-body" style="margin-left:auto;margin-top: -1rem;">
+                    <h6 class="card-title text-right mt-2">اسم العميل</h6>
+                    <p class="card-text text-right" style="color: teal;margin-top: -5px;font-size: 18px;">
+                        {{oneRow.user.username}}</p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid teal;height: 70px;">
+                <div class="card-body" style="margin-left:auto;margin-top: -1rem;">
+                    <h6 class="card-title text-right mt-2"> رقم هاتف العميل</h6>
+                    <p class="card-text text-right" style="color:teal;margin-top: -5px;font-size: 16px;">
+                        {{oneRow.user.mobile}}</p>
+
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+
+   
+
+</div>

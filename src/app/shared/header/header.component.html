@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand" style="width: 80%;float: left;">
+ 
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item" style="margin-left: -13rem;">
+            <img src="./assets/images/img_avatar2.png" alt="Avatar" class="avatar">
+        </li>
+        <li class="nav-item ml-5">
+            <button class="btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" style="margin-right: 3rem;margin-top: 1rem;background-color: white;" >
+                <span style="margin-right: -6rem;">مرحبا بك</span>
+                <span style="margin-right: -6rem;">{{ name }}</span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a href class="dropdown-item" (click)="OnLogout()">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i> تسجيل الخروج
+                </a>
+            </div>
+        </li>
+    
+    </ul>
+    </nav>

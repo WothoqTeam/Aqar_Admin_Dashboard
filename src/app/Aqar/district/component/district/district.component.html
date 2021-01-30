@@ -1,0 +1,120 @@
+<app-side></app-side>
+<app-header></app-header>
+
+<div class="appSideInfo">
+    <div class="infoContent">
+        <div class="row mt-5" style="background-color: white;width: 90%;margin-left: auto;margin-right: auto;
+      height: 5rem;border-radius:10px;">
+            <div class="col-md-3 " style="margin-top: 1.5rem;">
+                <p>الاحيــاء</p>
+            </div>
+            <div class="col-md-5">
+
+            </div>
+            <div class="col-md-4" style="margin-top: 1.5rem;">
+                <button class="btn" (click)="open(content)"
+                    style="background-color: #03989E;color: white;font-weight:bold;margin-right: 6rem;">اضــافة
+                    حــي جـديـد</button>
+            </div>
+        </div>
+
+
+
+        <div class="row" style="background-color: white;width: 90%;margin-left: auto;margin-right: auto;
+      height: auto;border-radius:10px;margin-top: 2rem;">
+            <div class="row  mr-auto ml-auto" style="margin-top: 2rem;width: 100%;">
+                <div class="col-md-5 col-sm-6 mr-5">
+                    <div class="input-icons" style="margin-right: 2rem;">
+
+                        <input class="input-field" type="text" placeholder="  البحث" style="width:350px; ">
+                        <i class="fa fa-search icon">
+                        </i>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 ">
+                    <div class="input-icons">
+                        <select class=" input-field mr-4" style="width:350px ;">
+                            <option disabled selected> Filter By </option>
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table table-bordered mt-5 text-center">
+                <thead style="background-color: #E4E2E2;">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">الحــى  <i class="fas fa-sort" ></i></th>
+                        <th scope="col">تعديل</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of districtList;let i=index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{item.name_ar}}</td>
+
+                        <td>
+                            <a (click)="editItem(item)">
+                                <i class="fas fa-edit" style="color:green;font-size: 25px;"></i></a>
+
+                            <a (click)="DeleteApplication(item.id)">
+                                <i class="fas fa-trash-alt mr-5" style="color: red;font-size: 25px;"></i></a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    
+    <div class="modal-body">
+        <div class="modal-header" style="background-color: teal;">
+            <p style="color:white;margin-left: auto;margin-right:auto;margin-top: 10px;font-size: 20px;font-weight: bold;">اضــافة مدينه </p>
+        </div>
+
+        <form [formGroup]="issueForm" (ngSubmit)="onSubmit()" style="margin-top: 2rem;">
+            <div class="row ml-auto mr-auto" style="width:100%">
+                <div >
+                    <label style="margin-left: 11rem;">المدينه </label>
+                    <br>
+                    <select class="form-control  " style="width: 215px;height:50px;" 
+                        formControlName="city_id">
+                        <option value="" disabled selected>اختر المدينه</option>
+                        <option *ngFor="let item of citiesList" [value]="item.id">{{item.name_ar}}</option>
+                        <i class="fas fa-angle-down text-info"></i>
+                    </select>
+                </div>
+                <div class="mr-2">
+                    <label style="margin-left: 3rem;">اســم الحــي (باللغه العربيه)</label>
+                    <form class="example form-group" [formGroup]="issueForm">
+                        <input type="text" style="height:50px;width: 215px;" formControlName="name_ar"
+                            class="form-control" placeholder="ادخل اسم الحي" name="search2">
+
+                    </form>
+                </div>
+                <div style="margin-left: 1rem;">
+                    <label style="margin-left: 3rem;">اســم الحــى (باللغه الانجليزيه)</label>
+                    <form class="example form-group" [formGroup]="issueForm">
+                        <input type="text" style="height:50px;width: 215px;" formControlName="name_en"
+                            class="form-control" placeholder="ُEnter your district" name="search2">
+
+                    </form>
+                </div>
+                
+
+            </div>
+           
+            <div>
+                <button type="submit" class="btn mt-3" style="color: white;font-size: 20px;width:400px;float: right;margin-right: 2rem;
+                  background-color:teal;">حفظ</button>
+            </div>
+
+        </form>
+    </div>
+
+</ng-template>

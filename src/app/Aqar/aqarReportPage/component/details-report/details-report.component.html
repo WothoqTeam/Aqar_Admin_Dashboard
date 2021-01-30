@@ -1,0 +1,82 @@
+<div class="modal-body">
+    <div class="row" style="background-color: teal;width: 33.2rem;margin-top: -1rem;">
+        <p style="color:white;margin-left: auto;margin-right:auto;margin-top: 10px;"> الأراضــي </p>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid teal;height: 70px;">
+                <div class="card-body" style="margin-left: auto;margin-top: -1rem;">
+                    <h6 class="card-title text-right mt-2">نوع العقــار </h6>
+                    <p *ngIf="oneRow.aqar_type === 0" class="card-text text-right" style="color:teal;margin-top: -5px;font-size: 18px;">
+                       أرض</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid teal;height: 70px;">
+                <div class="card-body" style="margin-left:auto;margin-top: -1rem;">
+                    <h6 class="card-title text-right mt-2">المســاحه</h6>
+                    <p class="card-text text-right" style="color: teal;margin-top: -5px;font-size: 18px;">
+                        {{oneRow.area}}</p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid teal;height: 70px;">
+                <div class="card-body" style="margin-left:auto;margin-top: -1rem;">
+                    <h6 class="card-title text-right mt-2"> حالــة الشارع</h6>
+                    <p *ngIf="oneRow.street_asphalt_type === 0" class="card-text text-right" style="color:teal;margin-top: -5px;font-size: 16px;">
+                        مسفلت</p>
+                    <p *ngIf="oneRow.street_asphalt_type === 1" class="card-text text-right" style="color:teal;margin-top: -5px;font-size: 16px;">
+                        غير مسفلت </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid teal;height: 70px;">
+                <div class="card-body" style="margin-left:auto;margin-top: -1rem;">
+                    <h6 class="card-title text-right mt-2">الشــارع </h6>
+                    <p *ngIf=" oneRow.street_type === 0" class="card-text text-right" style="color: teal;margin-top: -5px;font-size: 18px;">
+                        سكنــى</p>
+                    <p *ngIf=" oneRow.street_type === 1" class="card-text text-right" style="color: teal;margin-top: -5px;font-size: 18px;">
+                        تجــارى</p>
+                    <p *ngIf=" oneRow.street_type === 2" class="card-text text-right" style="color: teal;margin-top: -5px;font-size: 18px;">
+                        سكنــى وتجــارى</p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid teal;height: 70px;">
+                <div class="card-body" style="margin-left:auto;margin-top: -1rem;">
+                    <h6 class="card-title text-right mt-2"> سعر المـتـر</h6>
+                    <p class="card-text text-right" style="color:teal;margin-top: -5px;font-size: 16px;">
+                        {{oneRow.meter_price}}</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid teal;height: 70px;">
+                <div class="card-body" style="margin-left:auto;margin-top: -1rem;">
+                    <h6 class="card-title text-right mt-2">السعــر  </h6>
+                    <p class="card-text text-right" style="color: teal;margin-top: -5px;font-size: 18px;">
+                        {{oneRow.price}}</p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

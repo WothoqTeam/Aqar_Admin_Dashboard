@@ -1,0 +1,26 @@
+   
+    <div class="modal-body">
+        <div class="modal-header" style="background-color: teal;">
+            <p style="color:white;margin-left: auto;margin-right:auto;margin-top: 10px;font-size: 20px;font-weight: bold;">
+                تعديــل مدينه </p>
+        </div>
+
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()" style="margin-top: 2rem;">
+            <div class="row ml-auto mr-auto" style="width:100%">
+               
+                <div style="margin-left: auto;margin-right: auto;" >
+                    <label style="margin-left: 5rem;">اســم المدينه (باللغه العربيه)</label>
+                   
+                        <input type="text" style="height:50px;width: 300px;" formControlName="name_ar"
+                            class="form-control" placeholder="ادخل اسم المدينه" name="name_ar">
+                </div>
+
+            </div>
+           
+            <div>
+                <button type="submit" class="btn mb-3 mt-2" style="color: white;font-size: 20px;width:400px;float: right;margin-right: 2rem;
+                  background-color:teal;">حفظ</button>
+            </div>
+
+        </form>
+    </div>

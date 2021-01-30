@@ -1,0 +1,68 @@
+<app-side></app-side>
+<app-header></app-header>
+<div class="appSideInfo">
+    <div class="infoContent">
+        <div class="row mt-5" style="background-color: white;width: 90%;margin-left: auto;margin-right: auto;
+      height: 5rem;border-radius:10px;">
+            <div class="col-md-4 mr-2" style="margin-top: 1.5rem;">
+                <p> خدمة الدعم الفنى</p>
+            </div>
+
+            <div class="col-md-3">
+
+            </div>
+
+           
+        </div>
+
+        <div class="row" style="background-color: white;width: 90%;margin-left: auto;margin-right: auto;
+      height: auto;border-radius:10px;margin-top: 2rem;">
+
+<div class="row  mr-auto ml-auto" style="margin-top: 2rem;width: 100%;">
+    <div class="col-md-5 col-sm-6 mr-5">
+        <div class="input-icons" style="margin-right: 2rem;"> 
+            
+            <input class="input-field" 
+                   type="text" 
+                   placeholder="  البحث" style="width:350px; " > 
+                   <i class="fa fa-search icon"> 
+                </i> 
+        </div> 
+    </div>
+    <div class="col-md-6 col-sm-6 ">
+        <div class="input-icons"> 
+        <select class=" input-field mr-4" style="width:350px ;" >
+            <option disabled selected> Filter By   </option>
+            <option></option>
+        </select>
+        </div>
+    </div>
+</div>
+            <table class="table table-bordered mt-5 text-center">
+                <thead style="background-color: #E4E2E2;">
+                    <tr>
+                        <th scope="col">الاسم <i class="fas fa-sort"></i></th>
+                        <th scope="col">رقم الهاتف <i class="fas fa-sort"></i></th>
+                        <th scope="col">التفاصيل <i class="fas fa-sort"></i></th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of supportist">
+                        <th scope="row">{{item.name}}</th>
+                        <th scope="row">{{item.mobile}}</th>
+                        <th scope="row">{{item.details}}</th>
+                      
+
+
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

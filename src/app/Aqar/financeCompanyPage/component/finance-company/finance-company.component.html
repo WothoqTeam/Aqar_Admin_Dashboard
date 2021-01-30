@@ -1,0 +1,141 @@
+<app-side></app-side>
+<app-header></app-header>
+<div class="appSideInfo">
+    <div class="infoContent">
+        <div class="row mt-5" style="background-color: white;width: 90%;margin-left: auto;margin-right: auto;
+        height: 5rem;border-radius:10px;">
+            <div class="col-md-4 mr-2" style="margin-top: 1.5rem;">
+                <p>جهات التمويل العقارى </p>
+            </div>
+
+            <div class="col-md-3">
+
+            </div>
+
+            <div class="col-md-4 col-sm-4 mr-5" style="margin-top: 1.5rem;">
+                <a class="btn" (click)="open(content)" style="background-color: #03989E;color: white;font-weight:bold;
+                      margin-right: 6rem;">اضافة جهة تمويل
+                    عقاري</a>
+
+
+            </div>
+        </div>
+
+        <div class="row" style="background-color: white;width: 90%;margin-left: auto;margin-right: auto;
+      height: auto;border-radius:10px;margin-top: 2rem;">
+
+            <div class="row  mr-auto ml-auto" style="margin-top: 2rem;width: 100%;margin-bottom: 2rem;">
+                <div class="col-md-5 col-sm-6 mr-5">
+                    <div class="input-icons" style="margin-right: 2rem;">
+
+                        <input class="input-field" type="text" placeholder="  البحث" style="width:350px; ">
+                        <i class="fa fa-search icon">
+                        </i>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 ">
+                    <div class="input-icons">
+                        <select class=" input-field mr-4" style="width:350px ;">
+                            <option disabled selected> Filter By </option>
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table table-bordered mt-3 text-center">
+                <thead style="background-color: #E4E2E2;">
+                    <tr>
+                        <th scope="col">اسم الشخص المسئول <i class="fas fa-sort"></i></th>
+                        <th scope="col">اسم الجهة <i class="fas fa-sort"></i></th>
+                        <th scope="col">الايميل <i class="fas fa-sort"></i> </th>
+                        <th scope="col">رقم الجوال <i class="fas fa-sort"></i></th>
+                        <th scope="col">تعديــل</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of companyList">
+                        <th scope="row">{{item.username}}</th>
+                        <th scope="row">{{item.name}}</th>
+                        <th scope="row">{{item.email}}</th>
+                        <th scope="row">{{item.mobile}}</th>
+                        <td>
+
+                            <a (click)="editItem(item)">
+                                <i class="fas fa-edit" style="color: green;font-size: 25px;margin-top: 0.4rem;"></i></a>
+
+                            <a (click)="DeleteApplication(item.id)">
+                                <i class="fas fa-trash-alt mr-5"
+                                    style="color: red;font-size: 25px;margin-top: 0.4rem;"></i></a>
+
+                        </td>
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+
+    <div class="modal-body">
+        <div class="modal-header " style="background-color: teal;">
+            <p
+                style="color:white;margin-left: auto;margin-right:auto;margin-top: 10px;font-size: 20px;font-weight: bold;">
+                اضافة جهة التمويل العقارى </p>
+        </div>
+        <form style="margin-top: 1rem;" [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+            <div class="row ml-auto mr-auto" style="width:100%">
+
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left: 9rem;">اسم الجهة </label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="name"
+                        class="form-control mr-3" name="name">
+
+                </div>
+
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left:5rem">اسم الشخص المسئول </label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="username"
+                        class="form-control mr-3" name="username">
+
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left:11rem">الايميل</label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="email"
+                        class="form-control mr-3" name="email">
+
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left:9.5rem;">رقم الجوال</label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="mobile"
+                        class="form-control mr-3" name="mobile">
+
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="margin-left:11rem">الصوره</label><br>
+                    <div class="mr-3" style="border: 1px solid rgb(209, 204, 204);height: 50px;width: 215px;
+        border-radius:5px">
+                        <input type="file" (change)="onFileChanged($event)" accept=".png, .jpg, .jpeg"
+                            style="padding: 5px;margin-top: 0.4rem;" />
+                        <img src="">
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="submit" class="btn mt-3" style="color: white;font-size: 20px;width:400px;float: right;margin-right: 2rem;
+                  background-color:teal;">حفظ</button>
+            </div>
+        </form>
+
+
+    </div>
+
+</ng-template>

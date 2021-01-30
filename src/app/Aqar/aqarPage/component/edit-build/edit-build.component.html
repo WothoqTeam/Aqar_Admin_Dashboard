@@ -1,0 +1,81 @@
+<div class="modal-body">
+    <div class="modal-header " style="background-color: teal;">
+        <p style="color:white;margin-left: auto;margin-right:auto;margin-top: 10px;font-size: 25px;font-weight: bold;"> تعــديل العقــارات </p>
+    </div>
+    <form style="margin-top: 2rem;;" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 10.5rem;">نوع العقار </label>
+                <br>
+                <select class="form-control mr-3" style="width: 215px;height:50px;" formControlName="aqar_type">
+                    <option value="" disabled selected>اختر نوع العقار</option>
+                    <option [value]="3">عمــاره</option>
+                    <i class="fas fa-angle-down text-info"></i>
+                </select>
+            </div>
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 11rem;">المدينه </label>
+                <br>
+                <select class="form-control mr-3 " style="width: 215px;height:50px;" 
+                    formControlName="city">
+                    <option value="" disabled selected>اختر المدينه</option>
+                    <option *ngFor="let item of cityList" [value]="item.name_ar">{{item.name_ar}}</option>
+                    <i class="fas fa-angle-down text-info"></i>
+                </select>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 12rem;">الحي </label>
+                <br>
+                <select class="form-control mr-3" style="width: 215px;height:50px;" 
+                    formControlName="district">
+                    <option value="" disabled selected>اختر الحي</option>
+                    <option *ngFor="let item of districtList" [value]="item.name_ar">{{item.name_ar}}</option>
+                    <i class="fas fa-angle-down text-info"></i>
+                </select>
+            </div>
+            <div style="margin-top: 1rem;">
+            
+                <label style="margin-left: 9rem;">رقم العقار</label>
+                <input type="text"  style="height:50px;width: 215px;" formControlName="suk_number" class="form-control mr-3"
+                    name="suk_number">
+            </div>
+        </div>
+        <div class="row">
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 9rem;"> تاريخ العقار  </label>
+                
+                <input type="date"  style="height:50px;width: 215px;" formControlName="suk_date" class="form-control mr-3"
+                    name="suk_date">
+            </div>
+            <div style="margin-top: 1rem;">
+            
+                <label style="margin-left: 9rem;">مساحة الارض</label>
+                <input type="text"  style="height:50px;width: 215px;" formControlName="land_area" class="form-control mr-3"
+                    name="land_area">
+            </div>
+        </div>
+        <div class="row">
+            <div style="margin-top: 1rem;">
+            
+                <label style="margin-left: 10rem;">السعــر</label>
+                <input type="text"  style="height:50px;width: 215px;" formControlName="price" class="form-control mr-3"
+                    name="price">
+            </div> 
+            <div style="margin-top: 1rem;">
+            
+                <label style="margin-left: 10rem;">اسم الشارع</label>
+                <input type="text"  style="height:50px;width: 215px;" formControlName="street_name" class="form-control mr-3"
+                    name="street_name">
+            </div>
+        </div>
+       
+        <div>
+            <button type="submit" class="btn mb-5 "
+              style="color: white;font-size: 20px;width:400px;float: right;margin-right: 2rem;
+              background-color:teal;margin-top: 2rem;">حفظ</button>
+          </div>
+    </form>
+</div>

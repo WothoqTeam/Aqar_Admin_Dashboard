@@ -1,0 +1,91 @@
+<div class="modal-body">
+    <div class="row" style="background-color: teal;width: 33.2rem;margin-top: -1rem;">
+        <p style="color:white;margin-left: auto;margin-right: auto;margin-top: 10px;">تعديل العرض المالى</p>
+    </div>
+    <form style="margin-top: 2rem;" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="row ml-auto mr-auto" style="width:100%">
+
+            <div>
+                <label style="margin-left: 12rem;"> ID </label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="offer_id" class="form-control"
+                    name="offer_id">
+
+            </div>
+            <div >
+                <label style="margin-left: 9rem;">بنك التحويل </label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="salary_transferred_to_bank" class="form-control mr-3"
+                    name="salary_transferred_to_bank">
+
+            </div>
+
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 7rem;"> مبلغ التمويل </label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="funding_amount" class="form-control"
+                    name="funding_amount">
+
+            </div>
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 11rem;">الارباح</label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="profits" class="form-control mr-3"
+                    name="profits">
+
+            </div>
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 8rem;"> المبلغ بالكامل</label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="total_amount_support" class="form-control"
+                    name="total_amount_support">
+
+            </div>
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 8rem;"> فترة القرض</label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="loan_repayment_period" class="form-control mr-3"
+                    name="loan_repayment_period">
+
+            </div>
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 5rem;"> مدة القرض بالسنين</label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="years_number_loan_repayment_period" class="form-control"
+                    name="years_number_loan_repayment_period">
+
+            </div>
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 6rem;">مدة القرض بالاشهر </label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="month_number_loan_repayment_period" class="form-control mr-3"
+                    name="month_number_loan_repayment_period">
+
+            </div>
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 6rem;"> الدفعه الاولى للدفع</label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="first_installment" class="form-control"
+                    name="first_installment">
+
+            </div>
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 5rem;"> الدفعه الثانيه للدفع</label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="second_installment" class="form-control mr-3"
+                    name="second_installment">
+
+            </div>
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 8rem;">شهر اول قسط </label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="month_number_first_installment" class="form-control"
+                    name="month_number_first_installment">
+
+            </div>
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 7rem;">شهر ثانى قسط</label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="month_number_second_installment" class="form-control mr-3"
+                    name="month_number_second_installment">
+
+            </div>
+            <div class="modal-footer " style="border: none;">
+                <button [disabled]="isLoading" class="btn  " style="background-color:  teal;
+                color: white;width:215px;height: 50px;font-size: 18px;font-weight: bold; ">حفظ</button>
+            </div>
+            
+        </div>
+
+
+        
+    </form>
+</div>

@@ -1,0 +1,45 @@
+<div class="modal-body">
+    <div class="row" style="background-color: teal;width: 33.2rem;margin-top: -1rem;">
+        <p style="color:white;margin-left: auto;margin-right: auto;margin-top: 10px;">تعديل المستــخدم</p>
+    </div>
+    <form style="margin-top: 2rem;" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="row ml-auto mr-auto" style="width:100%">
+
+            <div>
+                <label style="margin-left: 12rem;"> ID </label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="user_id" class="form-control"
+                    name="user_id">
+
+            </div>
+            <div >
+                <label style="margin-left: 9rem;">اسم المستخدم </label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="username" class="form-control mr-3"
+                    name="username">
+
+            </div>
+
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 7rem;"> رقم الهاتف  </label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="mobile" class="form-control"
+                    name="mobile">
+
+            </div>
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 8rem;">البريد الالكترونى</label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="email" class="form-control mr-3"
+                    name="email">
+
+            </div>
+            
+           
+            <div class="modal-footer " style="border: none;">
+                <button [disabled]="isLoading" class="btn  " style="background-color:  teal;
+                color: white;width:215px;height: 50px;font-size: 18px;font-weight: bold; ">حفظ</button>
+            </div>
+            
+        </div>
+
+
+        
+    </form>
+</div>

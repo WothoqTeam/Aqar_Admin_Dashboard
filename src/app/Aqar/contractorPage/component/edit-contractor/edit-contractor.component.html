@@ -1,0 +1,48 @@
+<div class="modal-body">
+    <div class="row" style="background-color: teal;width: 33.2rem;margin-top: -1rem;">
+        <p style="color:white;margin-left: auto;margin-right: auto;margin-top: 10px;">تعديل المقــاول </p>
+    </div>
+    <form style="margin-top: 2rem;" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="row ml-auto mr-auto" style="width:100%">
+
+            <div>
+                <label style="margin-left: 13rem;"> ID </label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="contractor_id" class="form-control"
+                    name="contractor_id">
+
+            </div>
+            <div >
+                <label style="margin-left: 11.5rem;"> الاسـم </label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="name" class="form-control mr-3"
+                    name="name">
+
+            </div>
+
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 5rem;"> العنــوان </label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="address" class="form-control"
+                    name="address">
+
+            </div>
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 11rem;">التفاصيـل </label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="details" class="form-control mr-3"
+                    name="details">
+
+            </div>
+            <div style="margin-top: 1rem;">
+                <label style="margin-left: 10rem;"> رقم الجوال</label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="mobile" class="form-control"
+                    name="mobile">
+
+            </div>
+            
+        </div>
+
+
+         <div>
+            <button type="submit" class="btn mt-3 mb-3" style="color: white;font-size: 20px;width:400px;float: right;margin-right: 2rem;
+              background-color:teal;">حفظ</button>
+        </div>
+    </form>
+</div>

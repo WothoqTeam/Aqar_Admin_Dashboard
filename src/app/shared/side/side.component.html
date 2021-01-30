@@ -1,0 +1,62 @@
+<div class="appSide">
+  <div style="background-color: teal;height: 150px;margin-top: -3rem;border-bottom: 2px solid white;"> 
+    <p
+      style="text-align: center;color: white;font-family: 'Cairo', sans-serif;
+      font-weight: bold;padding-top: 5rem;font-size: 25px;">
+      عقار ومستشار</p>
+  </div>
+<div class="sideContent" style="margin-top: 3rem;">
+    <a routerLink="/aqar/Dashboard" routerLinkActive="active">
+      <i class="fas fa-home"></i>
+      <span style="margin-left: 15px;">الصفحة الرئيسية </span>
+    </a>
+    <button class="dropdown-btn">
+      إِدارة المستشارين العقارين
+    </button>
+    <div class="dropdown-container">
+      <a style="border-right:none" routerLink="/aqar/financecompany" routerLinkActive="active">جهات التمويل العقارى</a>
+      <a style="border-right:none" routerLink="/aqar/consultant" routerLinkActive="active"> المستشارين العقارين</a>
+      <a style="border-right:none"  routerLink="/aqar/finance" routerLinkActive="active">ملاك العقار والمطوريين العقاريين </a>
+      <a style="border-right:none" routerLink="/aqar/offers" routerLinkActive="active">العروض الماليه</a>
+      <a style="border-right:none" [routerLink]="['/aqar/consultantRates']" routerLinkActive="active" >التقييمات و اراء العملاء</a>
+    </div>
+    <button class="dropdown-btn">
+      إِدارة المستخدمين
+    </button>
+    <div class="dropdown-container">
+      <a style="border-right:none" [routerLink]="['/aqar/User']" routerLinkActive="active" > المستخدمين للوحة التحكم</a>
+      <a style="border-right:none" [routerLink]="['/aqar/requestmaintenance']" routerLinkActive="active" >طلبات الصيانه </a>
+      <a style="border-right:none" routerLink="/aqar/supportClient" routerLinkActive="active">الدعم الفني</a>
+    </div>
+    <button class="dropdown-btn">
+      التطبيقات
+   </button>
+   <div class="dropdown-container">
+     <a style="border-right:none"  [routerLink]="['/aqar/appSetting']" routerLinkActive="active" >ادارة التطبيق</a>
+     <a style="border-right:none" [routerLink]="['/aqar/AppSocial']" routerLinkActive="active" >مواقع التواصل الاجتماعى</a>
+    
+    </div>
+    <a routerLink="/aqar/contractor" routerLinkActive="active">
+      <i class="fas fa-file-contract"></i>
+      <span style="margin-left: 15px;">المقــاولون  </span>
+    </a>
+    <a routerLink="/aqar/aqars" routerLinkActive="active">
+      <i class="fas fa-building"></i>
+      <span style="margin-left: 15px;">العقــارات</span>
+    </a>
+    <a routerLink="/aqar/aqarReport" routerLinkActive="active">
+      <i class="far fa-clipboard"></i>
+      <span style="margin-left: 15px;"> التقارير العقاريه  </span>
+    </a>
+    <a routerLink="/aqar/Cities" routerLinkActive="active">
+      <i class="far fa-building"></i>
+      <span style="margin-left: 15px;"> المــدن  </span>
+    </a>
+    <a routerLink="/aqar/district" routerLinkActive="active">
+      <i class="far fa-building"></i>
+      <span style="margin-left: 15px;"> الاحيـــاء  </span>
+    </a>
+  </div>
+ 
+</div>
+<router-outlet></router-outlet>
